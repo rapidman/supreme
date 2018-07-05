@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {BreadCrumb} from "./breadcrumb";
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
@@ -28,15 +28,25 @@ export class BreadcrumbComponent implements OnInit {
   buildBreadCrumb(route: ActivatedRoute, url: string = '',
                   breadcrumbs: Array<BreadCrumb> = []): Array<BreadCrumb> {
     // If no routeConfig is avalailable we are on the root path
-    alert('buildBreadCrumb');
     const label = route.routeConfig ? route.routeConfig.data[ 'breadcrumb' ] : 'Home';
-    const path = route.routeConfig ? route.routeConfig.path : '';
+    const path = (route.routeConfig ? route.routeConfig.path : '').replace(':id', '');
     // In the routeConfig the complete path is not available,
     // so we rebuild it each time
     const nextUrl = `${url}${path}/`;
+
+    var param;
+    route.params.subscribe(params => {
+      param = params['id'];
+    });
+
+    if(param){
+      alert(param);
+    }
+
     const breadcrumb = {
       label: label,
-      url: nextUrl
+      url: nextUrl,
+      params: param
     };
     const newBreadcrumbs = [ ...breadcrumbs, breadcrumb ];
     if (route.firstChild) {

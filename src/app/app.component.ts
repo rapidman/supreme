@@ -10,6 +10,5 @@ export class AppComponent {
   title = 'Supreme';
 
   constructor(private route: ActivatedRoute) {
-    alert(route);
   }
 }

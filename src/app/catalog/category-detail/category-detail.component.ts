@@ -16,8 +16,7 @@ export class CategoryDetailComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      const categoryId = params['categoryId'];
-      alert(categoryId);
+      const categoryId = params['id'];
     });
   }
 

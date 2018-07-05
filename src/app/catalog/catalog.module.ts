@@ -22,14 +22,14 @@ const routes: Routes = [
         }
       },
       {
-        path: ':categoryId',
+        path: ':id',
         component: CategoryDetailComponent,
         data: {
           breadcrumb: 'CatId'
         },
         children:[
           {
-            path: 'detail/:productId',
+            path: 'detail/:id',
             component: ProductDetailComponent,
             data: {
               breadcrumb: 'ProdId'
