@@ -5,7 +5,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from "@angular/router";
 import {CatalogModule} from "./catalog/catalog.module";
-import {McBreadcrumbsModule} from "ngx-breadcrumbs";
+import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
 
 const appRoutes: Routes = [
   {
@@ -17,14 +17,14 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BreadcrumbComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {
       useHash: true,
       enableTracing: true
     }),
-    McBreadcrumbsModule.forRoot(),
     BrowserModule,
     CatalogModule,
   ],

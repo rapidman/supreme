@@ -11,32 +11,28 @@ const routes: Routes = [
   {
     path: 'category',
     data: {
-      breadcrumbs: true,
-      text: 'Category'
+      breadcrumb: 'Category'
     },
     children: [
       {
         path: '',
         component: CategoryListComponent,
         data: {
-          breadcrumbs: true,
-          text: 'List'
+          breadcrumb: 'List'
         }
       },
       {
         path: ':categoryId',
         component: CategoryDetailComponent,
         data: {
-          breadcrumbs: true,
-          text: 'CatId'
+          breadcrumb: 'CatId'
         },
         children:[
           {
             path: 'detail/:productId',
             component: ProductDetailComponent,
             data: {
-              breadcrumbs: true,
-              text: 'prodId'
+              breadcrumb: 'ProdId'
             }
           },
         ]
