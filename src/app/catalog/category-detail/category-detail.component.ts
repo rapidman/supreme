@@ -10,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 export class CategoryDetailComponent implements OnInit {
   sub: Subscription;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(public route: ActivatedRoute) {
   }
 
 

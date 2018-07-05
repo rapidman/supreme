@@ -1,7 +1,9 @@
+<div *ngIf="route.children.length === 0">
 <h2>Category Detail</h2>
 <ul>
   <li>
     <h2><a  [routerLink]="['./detail', 2]" >Product 2</a></h2>
   </li>
 </ul>
+</div>
 <router-outlet></router-outlet>
