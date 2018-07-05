@@ -4,7 +4,6 @@ import {CategoryDetailComponent} from './category-detail/category-detail.compone
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 import {RouterModule, Routes} from "@angular/router";
 import {CategoryListComponent} from './category-list/category-list.component';
-import {CategoryRootComponent} from './category-root/category-root.component';
 
 
 const routes: Routes = [
@@ -47,6 +46,6 @@ const routes: Routes = [
     CommonModule
   ],
   exports: [ RouterModule ],
-  declarations: [CategoryDetailComponent, ProductDetailComponent, CategoryListComponent, CategoryRootComponent]
+  declarations: [CategoryDetailComponent, ProductDetailComponent, CategoryListComponent]
 })
 export class CatalogModule { }
