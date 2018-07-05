@@ -17,7 +17,7 @@ const routes: Routes = [
         path: '',
         component: CategoryListComponent,
         data: {
-          breadcrumb: 'List'
+          breadcrumb: ''
         }
       },
       {

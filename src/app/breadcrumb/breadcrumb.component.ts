@@ -4,6 +4,7 @@ import {BreadCrumb} from "./breadcrumb";
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
+import {equal} from "assert";
 
 @Component({
   selector: 'app-breadcrumb',
@@ -34,14 +35,22 @@ export class BreadcrumbComponent implements OnInit {
     // so we rebuild it each time
     const nextUrl = `${url}${path}/`;
 
+    // skip blank breadcrumb
+    if(label === ''){
+      const newBreadcrumbs = [ ...breadcrumbs ];
+      if (route.firstChild) {
+        // If we are not on our current path yet,
+        // there will be more children to look after, to build our breadcumb
+        return this.buildBreadCrumb(route.firstChild, nextUrl, newBreadcrumbs);
+      }
+      return newBreadcrumbs;
+    }
+
+
     var param;
     route.params.subscribe(params => {
       param = params['id'];
     });
-
-    if(param){
-      alert(param);
-    }
 
     const breadcrumb = {
       label: label,
